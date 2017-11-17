@@ -47,10 +47,8 @@
       }
 
       function createIframeElement() {
-        var videoTemplates = ["small.html", "clouds.html", "turbines.html"];
-        var randomVideo = videoTemplates[Math.floor(Math.random() * videoTemplates.length)];
         let iframeElement = document.createElement("iframe");
-        iframeElement.src = randomVideo;
+        iframeElement.src = "clouds.html";
         iframeElement.scrolling = "no";
         iframeElement.sandbox = "allow-scripts allow-same-origin";
         iframeElement.allowtransparency = "allowtransparency";
