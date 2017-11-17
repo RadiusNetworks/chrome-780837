@@ -12,8 +12,8 @@ self.addEventListener("install", function(event) {
     caches.open("swdemo").then(function(cache) {
       cache.addAll([
         "index.html",
-        "small.webm",
-        "small.html",
+        "turbines.webm",
+        "turbines.html",
         "unknown.png"
       ]).then(function() {
         console.log("[ServiceWorker] Skip waiting on install");

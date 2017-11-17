@@ -48,15 +48,11 @@
 
       function createIframeElement() {
         let iframeElement = document.createElement("iframe");
-        iframeElement.src = "small.html";
+        iframeElement.src = "turbines.html";
         iframeElement.scrolling = "no";
         iframeElement.sandbox = "allow-scripts allow-same-origin";
         iframeElement.allowtransparency = "allowtransparency";
         return iframeElement;
-      }
-
-      window.onload = function() {
-        setInterval(rotateVideo, 5000);
       }
 
     </script>
