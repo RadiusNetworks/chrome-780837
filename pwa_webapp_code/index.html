@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+    html, body, main, webview, iframe {
+      margin: 0px;
+      padding: 0px;
+      height: 100%;
+      width: 100%;
+      background-color: #000;
+    }
+    </style>
+    <script>
+
+      if ("serviceWorker" in navigator) {
+        navigator.serviceWorker.register("worker.js").then(function(reg) {
+          if (reg.installing) {
+            console.log("Service worker installing");
+          }
+          else if (reg.waiting) {
+            console.log("Service worker installed");
+            rotateVideo();
+          }
+          else if (reg.active) {
+            console.log("Service worker active");
+            rotateVideo();
+          }
+        }).catch(function(error) {
+          console.log("Registration failed with " + error);
+        });
+
+        navigator.serviceWorker.addEventListener("message", function(event) {
+          console.log("[Service Worker]", event.data);
+          if (event.data === "installed") {
+            rotateVideo();
+          }
+        });
+      }
+
+      function rotateVideo() {
+        var element = document.querySelector("main");
+        while (element.firstChild) {
+          element.removeChild(element.firstChild);
+        }
+        var newIframeElement = createIframeElement();
+        document.querySelector("main").appendChild(newIframeElement);
+      }
+
+      function createIframeElement() {
+        var videoTemplates = ["small.html", "clouds.html", "turbines.html"];
+        var randomVideo = videoTemplates[Math.floor(Math.random() * videoTemplates.length)];
+        let iframeElement = document.createElement("iframe");
+        iframeElement.src = randomVideo;
+        iframeElement.scrolling = "no";
+        iframeElement.sandbox = "allow-scripts allow-same-origin";
+        iframeElement.allowtransparency = "allowtransparency";
+        return iframeElement;
+      }
+
+      window.onload = function() {
+        setInterval(rotateVideo, 5000);
+      }
+
+    </script>
+  </head>
+
+  <body>
+    <main>
+    </main>
+  </body>
+
+</html>
