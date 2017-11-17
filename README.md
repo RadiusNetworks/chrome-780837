@@ -2,6 +2,8 @@
 
 [CRBUG#780837](https://bugs.chromium.org/p/chromium/issues/detail?id=780837)
 
+[Link to the test app in the Chrome Web Store](https://chrome.google.com/webstore/detail/chrome-pwa-video-test/ecfefhpbicedcnpcbmcfoojbmagaahbp)
+
 This is a test application to demonstrate problems with crashing behavior when loading a progressive web app (PWA) inside of a Chrome Kiosk App.
 
 The Chrome App is a single HTML page that loads a PWA in a `webview`:
