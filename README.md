@@ -41,6 +41,8 @@ The app should run indefinitely, playing three simple videos repeatedly for an e
 
 ## Observed Behavior
 
-After running for an extended period of time (8+ hours) the webview appears to crash, showing a "sad face" error screen.  Inspecting the app with dev tools reveals that the webview is still present in the DOM, but the process associated with the webview is no longer present in the "Inspectable pages" list.
+After running for an extended period of time (8+ hours) the webview appears to crash, showing a "sad face" error screen (see image below).  Inspecting the app with dev tools reveals that the webview is still present in the DOM, but the process associated with the webview is no longer present in the "Inspectable pages" list.
 
 The Chrome app is still running but the PWA inside the `webview` tag is no longer running and appears to have crashed.
+
+![sad-face](https://i.imgur.com/mkNoIwA.png)
